@@ -1,0 +1,24 @@
+*, *::before, 
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;
+    background-color: #0e0e0e;
+    position: relative;
+}
+
+canvas {
+    width: 100% !important;
+    height: 100% !important;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
