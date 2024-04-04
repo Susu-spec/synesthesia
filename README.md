@@ -1,6 +1,6 @@
 # synesthesia
 
-A music visualiser which maps audio effects to visuals.
+A music visualiser.
 
 The frontend was created using [React](https://react.dev/).
 
@@ -15,4 +15,4 @@ The frontend was created using [React](https://react.dev/).
 - A lot more styling.
 
 ### General Notes
-I made this site for two reasons. One was because I thought it would be cool to see a some music visualisations and two because I wanted to learn React. I'm mostly excited about the first reason.
+I made this site for two reasons. One was because I thought it would be cool to see music visualisations before I realised I could just build mine and two because I wanted to learn React. I'm mostly excited about the first reason.
