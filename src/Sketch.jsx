@@ -13,9 +13,8 @@ const s = ( sketch ) => {
   let waves;
   let intensity;
   let particles = [];
-  let current = 0;
-  let target = 0;
   let ease = 0;
+  let target = 0;
   let colorIndex = 0; 
   let r = 200;
   let numRings = 20;
@@ -28,21 +27,23 @@ const s = ( sketch ) => {
 
   sketch.setup = () => {
     sketch.createCanvas(window.innerWidth, window.innerHeight, sketch.WEBGL);
-    song = sketch.loadSound("/assets/sound.wav");
+    song = sketch.loadSound("/assets/jada.mpeg");
     fft = new sketch.constructor.FFT(0.8, 1024);
     peakDetect = new sketch.constructor.PeakDetect();
     waveform = fft.waveform();
     sketch.angleMode(sketch.DEGREES);
     sketch.colorMode(sketch.HSB);
     sketch.stroke(199, 80, 88);
-    sketch.strokeWeight(2.5);
+    sketch.strokeWeight(2.7);
     particleSystem();
   }
 
   sketch.draw =() => {
       let camZ = sketch.map(sketch.mouseX, 0, sketch.width, -200, 0);
       let camY = sketch.map(sketch.mouseY, 0, ((sketch.height) / 4), 0, 200);
-      sketch.camera(0, camY, camZ, 0, 0, 0, 0, 1, 0);
+      // sketch.camera(0, camY, camZ, 0, 0, 0, 0, 1, 0);
+      let fov = sketch.map(sketch.mouseX, sketch.width / 2, sketch.width, 0, 360);
+      sketch.perspective(fov, sketch.width / sketch.height, 10, 1000);
       spectrum = fft.analyze();
       peakDetect.update(fft);
 
@@ -69,26 +70,31 @@ const s = ( sketch ) => {
 
   function bumpySphere(intensity, peakDetect) {
     let vertices = [];
+    
+    let current = 0;
     sketch.clear();
+    
     if (song.isPlaying()) {
+      target += 10;
       if(peakDetect.isDetected) {
         target -= 80;
       }
+      let angle = sketch.createVector(0, 0, 1);
       let j = target / 5000;
       target += j;
       ease = sketch.sqrt(0.005);
       current = sketch.lerp(current, target, sketch.abs(ease));
-      sketch.rotateY(current);
+      sketch.rotate(current, angle);
     }
-    sketch.background(230, 50, 15);
+    // sketch.background(230, 50, 15);
     sketch.orbitControl(2, 2);
     for (let phi = 0; phi < 180; phi += 2) {
       // sketch.stroke(20);
       sketch.beginShape(sketch.POINTS); //TESS
       for (let theta = 0; theta < 360; theta += 2) {
-        let x = (r * (1 + ((intensity * 10)) * sketch.sin(theta * 5) * sketch.sin(phi * 6))) * sketch.sin(phi) * sketch.cos(theta);
+        let x = (r * (1 + ((intensity * 5)) * sketch.sin(theta * 5) * sketch.sin(phi * 6))) * sketch.sin(phi) * sketch.cos(theta);
         let y = (r * (1 + ((intensity * 5)) * sketch.sin(theta * 5) * sketch.sin(phi * 6))) * sketch.sin(phi) * sketch.sin(theta);
-        let z = (r * (1 + ((intensity * 10)) * sketch.sin(theta * 5) * sketch.sin(phi * 6))) * sketch.cos(phi); 
+        let z = (r * (1 + ((intensity * 5)) * sketch.sin(theta * 5) * sketch.sin(phi * 6))) * sketch.cos(phi); 
         // if (theta % 90 === 0) { // Change color every 90 degrees (diagonals)
         //   colorIndex++;
         //   sketch.stroke(colorIndex % 2 === 0 ? sketch.color(sketch.random(255)) : sketch.color(sketch.random(100))); // Alternate between two colors
@@ -173,13 +179,13 @@ const s = ( sketch ) => {
   };
 
 
-}
+  }
 }
 
-let ske = new p5(s);
+const sketchInstance = new p5(s);
 function Sketch() {
-    return (<ReactP5Wrapper sketch={ske}></ReactP5Wrapper>
+    return (<ReactP5Wrapper sketch={sketchInstance}></ReactP5Wrapper>
     )
 } 
 
-export default Sketch
+export default Sketch;
