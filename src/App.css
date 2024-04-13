@@ -12,12 +12,11 @@ body {
 }
 
 canvas {
-    width: 95% !important;
-    height: 85% !important;
+    width: 100% !important;
+    height: 100% !important;
     position: fixed;
     top: 50%;
     left: 50%;
-    /* bring your own prefixes */
     transform: translate(-50%, -50%);
 }
 
@@ -39,8 +38,4 @@ input {
     background-size: cover;
     background-position: center;
     z-index: -1;
-}
-
-.clicked {
-    display: block !important;
 }
