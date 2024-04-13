@@ -16,3 +16,5 @@ The frontend was created using [React](https://react.dev/).
 
 ### General Notes
 I made this site for two reasons. One was because I thought it would be cool to see music visualisations before I realised I could just build mine and two because I wanted to learn React. I'm mostly excited about the first reason.
+
+- Weird situation 1. Sketch instance didn't need the reactP5wrapper jsx to render because P5.js operates independently of React's virtual DOM. P5.js directly manipulates the HTML canvas element without relying on React's rendering mechanism. That's interesting.

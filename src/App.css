@@ -12,11 +12,17 @@ body {
 }
 
 canvas {
-    width: 100% !important;
-    height: 100% !important;
+    width: 95% !important;
+    height: 85% !important;
     position: fixed;
-    top: 0;
-    bottom: 0;
+    top: 50%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+}
+
+input {
+    z-index: 100;
 }
 
 ::-webkit-scrollbar {
@@ -33,4 +39,8 @@ canvas {
     background-size: cover;
     background-position: center;
     z-index: -1;
+}
+
+.clicked {
+    display: block !important;
 }
