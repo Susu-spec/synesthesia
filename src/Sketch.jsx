@@ -1,9 +1,4 @@
 import React, { useEffect, useRef, useId } from "react";
-// import { ReactP5Wrapper } from "@p5-wrapper/react";
-// import AudioInput from "./AudioInput";
-// import gsap from "gsap";
-// import { useGSAP } from "@gsap/react";
-import VisualizerPage from "./VisualizerPage";
 import * as sketch from "p5";
 window.sketch = sketch;
 import "p5/lib/addons/p5.sound"
@@ -18,9 +13,9 @@ const Sketch = ({ songInput }) => {
       let fft;
       let songInstance;
       let peakDetect;
+      let waves;
       let waveform;
       let spectrum;
-      let waves;
       let intensity;
       let particles = [];
       let ease = 0;
@@ -37,12 +32,10 @@ const Sketch = ({ songInput }) => {
 
       sketch.preload = () => {
         songInstance = sketch.loadSound(URL.createObjectURL(songInput)); 
-        console.log(songInstance);
       }
     
       sketch.setup = () => {
         sketch.createCanvas(window.innerWidth, window.innerHeight, sketch.WEBGL);
-        // console.log("good");
         fft = new sketch.constructor.FFT(0.8, 1024);
         peakDetect = new sketch.constructor.PeakDetect();
         waveform = fft.waveform();
@@ -191,8 +184,6 @@ const Sketch = ({ songInput }) => {
         particles.push(particleRing);
       } 
     
-     
-    
       sketch.mouseClicked = () => {
         if (songInstance.isPlaying()) {
           songInstance.pause();
@@ -217,17 +208,3 @@ const Sketch = ({ songInput }) => {
 } 
 
 export default Sketch;
-
-//   const ske = document.querySelector(".p5CCanvas")
-// console.log(ske);
-// const top = gsap.timeline({ defaults: { duration: 1}});
-//     top.fromTo(ske, { rotation: "0", 
-//                                 scale: "1" 
-//                               },
-//       { rotation: "360", scale: "2", duration: 2, repeat: -1, ease: 'power1.inOut'});
-    
-//   document.body.appendChild(skeet);
-  // console.log("did");
-  // useGSAP((gsap) => {
-  //    });
-  // onst skeet = document.createElement('div');

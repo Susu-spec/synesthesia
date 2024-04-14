@@ -6,8 +6,6 @@ import Sketch from './Sketch'
 const VisualizerPage = () => {
     const location = useLocation();
     const { songInput } = location.state;
-  
-    console.log(location.state);
 
   return (
     <div>

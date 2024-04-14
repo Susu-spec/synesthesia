@@ -28,22 +28,28 @@ const Homepage = () => {
     
     // Testing animation
     useGSAP(() => { 
+        gsap.from(elementRef.current, {
+            duration: 1,
+            y: -20,
+            opacity: 0,
+        }, {scope: container}),
         gsap.to(elementRef.current, {
             duration: 1,
-            x: 100,
-            y: 50,
-            rotation: 360,
+            x: 0,
+            y: 0,
+            opacity: 1,
             ease: 'power1.inOut',
         });
     }, {scope: container});
 
   return (
-    <div ref={container}>
+    <div ref={container} className="knewave center head">
         <h1 ref={elementRef}>Synesthesia</h1>
-        <form onSubmit={handleSubmit}>
-            <div ref={elementRef}>
-                <label htmlFor='songInput'>Song</label>
+        <form className="set-width row margin-top" onSubmit={handleSubmit}>
+            <div className='center full-width'>
+                <label className="btn montserrat full-width text-center rotate-pos" htmlFor='songInput'>Add Song</label>
                 <input
+                    className='hidden'
                     type="file" 
                     accept="audio/*"
                     id='songInput'
@@ -51,7 +57,7 @@ const Homepage = () => {
                     required
                 />
             </div>
-            <button type='submit'>Start Visualizer</button>
+            <button type='submit' className='btn full-width margin-left text-center text-size montserrat rotate-neg'>Start Visualizer</button>
         </form>
     </div>
   )
