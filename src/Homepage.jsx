@@ -43,10 +43,11 @@ const Homepage = () => {
     }, {scope: container});
 
   return (
-    <div ref={container} className="knewave center head">
+    <div ref={container} className="bungee center head">
         <h1 ref={elementRef}>Synesthesia</h1>
+        <p className='montserrat'>A spherical musical experience.</p>
         <form className="set-width row margin-top" onSubmit={handleSubmit}>
-            <div className='center full-width'>
+            <div className='center full-width fit-content'>
                 <label className="btn montserrat full-width text-center rotate-pos" htmlFor='songInput'>Add Song</label>
                 <input
                     className='hidden'
@@ -57,7 +58,7 @@ const Homepage = () => {
                     required
                 />
             </div>
-            <button type='submit' className='btn full-width margin-left text-center text-size montserrat rotate-neg'>Start Visualizer</button>
+            <button type='submit' className='btn full-width text-center text-size montserrat rotate-neg margin-right'>Start Visualizer</button>
         </form>
     </div>
   )

@@ -7,7 +7,6 @@
 
 body {
     overflow: hidden;
-    background-color: #0e0e0e;
     position: relative;
 }
 
@@ -24,13 +23,18 @@ input {
     z-index: 100;
 }
 
+button {
+    margin: 0;
+}
+
 h1 {
     /* color: hsl(208, 100%, 50%); */
-    background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(78,108,139,1) 35%, rgba(0,212,255,1) 100%);
-    font-size: 3rem;
+    background: linear-gradient( rgba(2,0,36,1) 0%, rgba(78,108,139,1) 35%, rgba(0,212,255,1) 100%);
+    font-size: 2.5rem;
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    animation: animazone 15s ease-in-out infinite;
 }
 
 ::-webkit-scrollbar {
@@ -61,8 +65,21 @@ h1 {
     background-position: center;
 }
 
+.gradient-animation {
+    background-image: linear-gradient(-45deg, #000d1e, #37597b, #011c35, #97a9bc);
+    height: 100vh;
+    background-size: 400% 400%;
+    animation: gradient 15s ease-in-out infinite;
+}
+
 .knewave {
     font-family: "Knewave", system-ui;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  .bungee {
+    font-family: "Bungee Shade", sans-serif;
     font-weight: 400;
     font-style: normal;
   }
@@ -75,7 +92,7 @@ h1 {
 
 .head {
     position: fixed;
-    bottom: 50%;
+    bottom: 30%;
     margin: 0 auto;
     width: 100%;
 }
@@ -101,22 +118,27 @@ h1 {
 }
 
 .margin-top {
-    margin-top: 1.4rem;
+    margin-top: 2rem;
 }
 
 .btn {
     padding: 2vmax;
+    max-width: fit-content;
     border: 1px none;
     border-radius: .5rem;
     box-shadow: 5px 5px;
     margin-inline: auto;
     background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
     background-clip: border-box;
-    -webkit-background-clip: border-box;
+    -webkit-background-clip: border-box; 
 }
 
 .margin-left {
     margin-left: 1rem;
+}
+
+.margin-right {
+    margin-right: 0;
 }
 
 .hidden {
@@ -125,6 +147,9 @@ h1 {
 
 .text-center {
     text-align: center;
+}
+.fit-content {
+    max-width: fit-content;
 }
 
 .text-size {
@@ -137,4 +162,25 @@ h1 {
 
 .rotate-pos {
     rotate: 5deg;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+@keyframes animazione {
+    0% {
+      background-size: 100%;
+    }
+    100% {
+      background-size:400%;
+    }
 }
