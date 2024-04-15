@@ -1,6 +1,6 @@
 import React from 'react';
-import Homepage from './Homepage';
-import VisualizerPage from './VisualizerPage';
+import Homepage from './pages/Homepage';
+import VisualizerPage from './pages/VisualizerPage';
 import {BrowserRouter , Routes , Route} from 'react-router-dom'
 
 

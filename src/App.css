@@ -66,10 +66,10 @@ h1 {
 }
 
 .gradient-animation {
-    background-image: linear-gradient(-45deg, #000d1e, #37597b, #011c35, #97a9bc);
+    background-image: linear-gradient(-45deg, #000d1e, #353e47, #37597b, #011c35);
     height: 100vh;
     background-size: 400% 400%;
-    animation: gradient 15s ease-in-out infinite;
+    animation: gradient 6s ease-in-out infinite;
 }
 
 .knewave {
@@ -86,13 +86,13 @@ h1 {
 
 .montserrat {
     font-family: 'Montserrat', sans-serif;
-    font-weight: 400;
+    font-weight: 600;
     font-style: normal;
 }
 
 .head {
     position: fixed;
-    bottom: 30%;
+    bottom: 35%;
     margin: 0 auto;
     width: 100%;
 }
@@ -111,6 +111,8 @@ h1 {
 .row {
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
 .full-width {
@@ -141,6 +143,10 @@ h1 {
     margin-right: 0;
 }
 
+.margin-top--small {
+    margin-top: .4rem;
+}
+
 .hidden {
     display: none;
 }
@@ -162,6 +168,15 @@ h1 {
 
 .rotate-pos {
     rotate: 5deg;
+}
+
+.yellow {
+    color: rgb(168, 168, 39);
+}
+
+.text-shadow {
+    text-shadow: #000d1e 2px 2px;
+    font-stretch: extra-condensed;
 }
 
 @keyframes gradient {
